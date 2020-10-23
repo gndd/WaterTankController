@@ -41,6 +41,7 @@
 #include <Bounce2.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <Adafruit_I2CDevice.h>
 
 // ========== Inicio zona de parametrización del WaterTankController =============================
 

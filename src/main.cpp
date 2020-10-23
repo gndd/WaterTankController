@@ -111,7 +111,7 @@ void setup() {
   WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP    
   Serial.begin(115200);
 
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3C for 128x64
     Serial.println(F("SSD1306 allocation failed"));
     for(;;);
   }
@@ -344,7 +344,6 @@ void updateDisplay()
 void ReadWiFiSignalLevel()
 {
   //Lectura de la intensidad de señal WiFi
-   
    long rssi = WiFi.RSSI();
    // dBm to Signal Quality [%]:
     if(rssi <= -100)

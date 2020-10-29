@@ -18,11 +18,9 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-  ================= 
-  = Sensor DS18B20 =
-  =================
-  The BME680 is an environmental digital sensor that measures gas, pressure, 
-  humidity and temperature.
+  ============================================== 
+  = Sensor DS18B20. Digital Temperature Sensor =
+  ==============================================
   connections:
   - VCC -> 3V3
   - GND -> GND
@@ -30,23 +28,24 @@
 
 */
 
-#include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <WiFiManager.h> 
-#include "mqtt.configuration.h"
-#include <PubSubClient.h>
-#include <ArduinoJson.h>
-#include <OneWire.h>                
-#include <DallasTemperature.h>
-#include <Bounce2.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <Adafruit_I2CDevice.h>
+#include <Arduino.h>                // https://github.com/arduino/ArduinoCore-avr
+#include <ESP8266WiFi.h>            // https://github.com/esp8266/Arduino
+#include <WiFiManager.h>            // https://github.com/tzapu/WiFiManager/tree/development
+#include <PubSubClient.h>           // https://github.com/knolleary/pubsubclient
+#include <ArduinoJson.h>            // https://github.com/bblanchon/ArduinoJson
+#include <OneWire.h>                // https://github.com/PaulStoffregen/OneWire
+#include <DallasTemperature.h>      // https://github.com/milesburton/Arduino-Temperature-Control-Library
+#include <Bounce2.h>                // https://github.com/thomasfredericks/Bounce2
+#include <Adafruit_GFX.h>           // https://github.com/adafruit/Adafruit-GFX-Library
+#include <Adafruit_SSD1306.h>       // https://github.com/adafruit/Adafruit_SSD1306
+#include <Adafruit_I2CDevice.h>     // https://github.com/adafruit/Adafruit_BusIO/blob/master/Adafruit_I2CDevice.h
+#include "mqtt.configuration.h"     // MQTT file configuration.
+
 
 // ========== Inicio zona de parametrización del WaterTankController =============================
 
 const unsigned int tiempoReporteMQTTBroker = 30000; // Tiempo de reporte al Broker MQTT.
-const unsigned int timepoMaximoBombaEncendida = 720000; // Tiempo máximo en que la Bomba Centrífuga estará encendida (12 minutos).
+const unsigned int timepoMaximoBombaEncendida = 420000; // Tiempo máximo en que la Bomba Centrífuga estará encendida (7 minutos).
 const unsigned int timepoEntreEncendidosBomba = 1200000; // Tiempo permitido entre encendidos de la Bomba Centrífuga (20 minutos).
 
 unsigned int ledBlinkONInterval = 50; // Tiempo de ON de Led Blink.

@@ -80,7 +80,7 @@ En mi caso particular, utilicé un Contactor modular bipolar monofásico marca B
 
 El esquemático del dispositivo está diseñado y [publicado en EasyEDA](https://easyeda.com/gndidonato/watertankcontroller). También pueden descargarse los archivos esquemátivos desde este repositorio.
 
-![WaterTankController](/Users/guillermodidonato/Projects/WaterTankController/images/Schematic_WaterTankController.png)
+![WaterTankController](images/Schematic_WaterTankController.png)
 
 
 

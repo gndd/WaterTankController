@@ -113,7 +113,7 @@ Actualmetne el dispositivo está armado en una placa experimental. El diseño y 
 
 ## Configuración del Firmware del WaterTankController
 
-El proyecto está desarrollado en [VSCODE/PlatformIO](VSCODE/PlatformIO), e incluye todas las librerías necesarias para su compilación en el directorio `/lib`. Es decir, con sólo descargar *(o clonar)* el proyecto y editar el nombre de un archivo, debería compilar sin errores.
+El proyecto está desarrollado en [VSCODE/PlatformIO](https://platformio.org), e incluye todas las librerías necesarias para su compilación en el directorio `/lib`. Es decir, con sólo descargar *(o clonar)* el proyecto y editar el nombre de un archivo, debería compilar sin errores.
 
 Una vez en la carpeta local del proyecto, cambiarle el nombre al archivo que se encuentra dentro del directorio `/include` de `mqtt.configuration.example.h` a `mqtt.configuration.example.h` *(sólo hay que borrarle "example).*
 

@@ -34,13 +34,14 @@ Para el Tanque Cisterna utilicé el sensor de nivel [Viyilant TI-Hermético](htt
 
 Una primera versión del dispositivo no tomaba ninguna decisión, sino que sólo reportaba el estado de los tanques a [Home Asstant](https://www.home-assistant.io), y por medio de automatizaciones se encendía/apagaba la Bomba Centrífuga, pero problemas con la red *(WiFi)* podían generar desbordes en el Tanque Elevado, o calentamiento de la Bomba Centrífuga *(por no parar la marcha ante falta de agua en el Tanque Cisterna)*. Por ese motivo, decidí que el dispositivo sea el controlador y que reporte el estado a Home Assistant para monitoreo y eventualmente disparar automatizaciones *(Por ejemplo, desactivar el controlador por falta de presencia en la casa).*
 
-Uno de los puntos importantes en el código del **WaterTankController** fue conseguir la libreria "WiFi Manager" que trabaje en modo "No-Bloqueante", es decir, que si el dispositivo no logra conectarse a la red WiFi, o si pierde conexión *(por ejemplo, por problemas con el Access Point )*, siga controlando su tarea crítica *(los niveles de agua de los Tanques y la marcha de la Bomba Cisterna)*. Para eso utilicé el ["Development Branch" de la librería de tzapu](https://github.com/tzapu/WiFiManager/tree/development). De esta manera, la placa microcontroladora NodeMCU *(basada en el microcontrolador Espressif ESP8266)* se encarga de controlar los niveles de agua del Tanque Cisterna, Elevado, la marcha de la Bomba Centrífuga, y si consigue conectarse a la red WiFi y a la instancia de Home Assistant, publicará los estados correspondientes. Caso contrario, trabajará de manera autónoma com un controlador convencional.
+Uno de los puntos importantes en el código del **WaterTankController** fue conseguir la libreria "WiFi Manager" que trabaje en modo "No-Bloqueante", es decir, que si el dispositivo no logra conectarse a la red WiFi, o si pierde conexión *(por ejemplo, por problemas con el Access Point )*, siga controlando su tarea crítica *(los niveles de agua de los Tanques y la marcha de la Bomba Cisterna)*. Para eso utilicé el ["Development Branch" de la librería de tzapu](https://github.com/tzapu/WiFiManager/tree/development). De esta manera, la placa microcontroladora NodeMCU *(basada en el microcontrolador Espressif ESP8266)* se encarga de controlar los niveles de agua del Tanque Cisterna, Elevado, la marcha de la Bomba Centrífuga, y si consigue conectarse a la red WiFi y a la instancia de Home Assistant, publicará sus estados.
+Caso contrario, trabajará de manera autónoma como un controlador convencional.
 
 
 
 ## Descripción Funcional
 
-La primera vez que se enciende el dispositivo, se coloca en "Modo Acces Point", con SSID "**WaterTankController**". Desde cualquier dispositivo cliente WiFi *(teléfono, tablet, Notebook)* se deberá conectar a esa red, y una vez establecida la conexión, normalmente el dispositivo presentará una página como la que se muestra en la captura de pantalla Nº 2 que se muestra debajo. En caso de que la redirección no sea automática, se deberá apuntar el Navegador a la IP 192.168.4.1.
+La primera vez que se enciende el dispositivo, se coloca en "Modo Acces Point", con SSID "**WaterTankController**". Desde cualquier dispositivo cliente WiFi *(teléfono, tablet, Notebook)* deberemos conectarnos a esa red, y una vez establecida la conexión, normalmente el dispositivo presentará una página como la que se muestra en la captura de pantalla Nº 2 . En caso de que la redirección no sea automática, deberemos apuntar el Navegador a la IP 192.168.4.1.
 
 
 
@@ -48,11 +49,11 @@ La primera vez que se enciende el dispositivo, se coloca en "Modo Acces Point", 
 
 
 
-Seleccionando el botón "Configure WiFi", el **WaterTankController** realizará un "escaneo" de las redes WiFi disponibles, y mostrará en pantalla el resultado, como puede verse en la captura Nº 3. En ese momento se selecciona la red WiFi a la que queremos que el **WaterTankController** se conecte, e ingresamos la clave o Password. 
+Seleccionando el botón "Configure WiFi", el **WaterTankController** realizará un "escaneo" de las redes WiFi disponibles, y mostrará en pantalla el resultado, como puede verse en la captura Nº 3. En ese momento seleccionaremos la red WiFi a la que queremos que el **WaterTankController** se conecte, e ingresamos la clave o "Password". 
 
 Una vez cargados los datos, al guardarlos por medio del botón "Save", el dispositivo se reiniciará, y si logra conectarse la red WiFi especificada, comenzará a enviar los datos a la instancia de Home Assistant que se le haya configurado en el programa *[(ver Firmware más abajo)](Configuración del Firmware del WaterTankController)*.
 
-A partir de ese momento, y con el Home Assistan configurado *[(ver configuración de Home Assistant)](Configuración de Home Assistant)*, podrá verse el estado del circuito de agua de la casa en el Widget correspondiente, tal como se muestra en la siguiente imagen:
+A partir de ese momento, y con el Home Assistan configurado *[(ver configuración de Home Assistant)](Configuración de Home Assistant)*, podrá verse el estado del circuito de agua de la casa en el Dashboard correspondiente, tal como se muestra en la siguiente imagen:
 
 
 
@@ -68,7 +69,7 @@ Para tener información del estado de los componentes del circuito de agua de ma
 
 El dispositivo controla la Bomba Centrífuga por medio de un Módulo Relay, activando la bobina de un Contactor *(Normal-Abierto)* para Riel DIN.
 
-En mi caso particular, utilicé un Contactor modular bipolar monofásico marca BAW *(modelo CM25-20M)* de 25A con bobina de 220V, pero podría utilizarse cualquier otro contactor que soporte la carga de la Bomba Centrífuga utilizada. La bomba centrífuga que utilicé es una [Pedrollo CPm-130](https://www.pedrollo.com/public/allegati/CP%200.25-2.2%20kW_ES_50Hz.pdf).
+En mi caso utilicé un Contactor modular bipolar monofásico marca BAW *(modelo [CM25-20M](http://bawelectric.com/producto_detalle.php?categoria=354&producto=2597))* de 25A con bobina de 220V, pero podría utilizarse cualquier otro contactor que soporte la carga de la Bomba Centrífuga utilizada. La bomba centrífuga que utilicé es una [Pedrollo CPm-130](https://www.pedrollo.com/public/allegati/CP%200.25-2.2%20kW_ES_50Hz.pdf).
 
 
 
@@ -78,7 +79,7 @@ En mi caso particular, utilicé un Contactor modular bipolar monofásico marca B
 
 ## Esquemático y PCB del WaterTankController
 
-El esquemático del dispositivo está diseñado y [publicado en EasyEDA](https://easyeda.com/gndidonato/watertankcontroller). También pueden descargarse los archivos esquemátivos desde este repositorio.
+El esquemático del dispositivo está diseñado y [publicado con Licencia GPL V3.0 en EasyEDA](https://easyeda.com/gndidonato/watertankcontroller).
 
 ![WaterTankController](images/Schematic_WaterTankController.png)
 
@@ -112,7 +113,7 @@ Actualmetne el dispositivo está armado en una placa experimental. El diseño y 
 
 ## Configuración del Firmware del WaterTankController
 
-El proyecto está desarrollado en VSCODE/PlatformIO, e incluye todas las librerías necesarias para su compilación en el directorio `/lib`. Es decir, con sólo descargar *(o clonar)* el proyecto y editar el nombre de un archivo, debería compilar sin errores.
+El proyecto está desarrollado en [VSCODE/PlatformIO](VSCODE/PlatformIO), e incluye todas las librerías necesarias para su compilación en el directorio `/lib`. Es decir, con sólo descargar *(o clonar)* el proyecto y editar el nombre de un archivo, debería compilar sin errores.
 
 Una vez en la carpeta local del proyecto, cambiarle el nombre al archivo que se encuentra dentro del directorio `/include` de `mqtt.configuration.example.h` a `mqtt.configuration.example.h` *(sólo hay que borrarle "example).*
 
@@ -131,7 +132,7 @@ El contenido del archivo `mqtt.configuration.example.h` es el siguiente:
 
 Sólo resta editar el archivo con los datos del Broqker MQTT que tenga instalada la instancia de Home Assistant donde reportará el **WaterTankController** *(normalmente Mosquitto)*, compilar el proyecto y descargarlo al NodeMCU por medio de un cable USB.
 
-En resumen, los pasos a seguir para compilar e instalar el **WaterTankController** en la placa son los siguientes:
+En resumen, los pasos a seguir para compilar e instalar el **WaterTankController** en la placa microcontroladora son los siguientes:
 
 - Descargar el código del proyecto *(o clonarlo en el directorio deseado)*.
 - Cambiarle el nombre al archivo que se encuentra dentro del directorio `/include` de `mqtt.configuration.example.h` a `mqtt.configuration.example.h` *(sólo hay que borrarle "example)*.
@@ -145,7 +146,7 @@ En resumen, los pasos a seguir para compilar e instalar el **WaterTankController
 
 Para que Home Assistant reciba los datos enviados por WaterTankController y los procese corectamente, es necesario definir el dispositivo en su archivo `configuration.yaml`. Esto puede realizarse de distintas maneras, en mi caso, utilizo el "File Editor" que viene incluido en la interfaz de Home Assistant.
 
-Debajo de la última entrada del archivo `configuration.yaml`, agregar el siguiente código:
+Debajo de la última entrada del archivo `configuration.yaml`, hay que agregar el siguiente código:
 
 
 
@@ -186,7 +187,7 @@ sensor 3:
 ## Tareas Pendientes y mejoras planeadas para el proyecto
 
 - Hacer el PCB del WaterTankController.
-- Hacer que el Sensor de Desborde sea opcional.
-- Incluirle un "Modo-Debug", mediante el cual  pueda configurarse si envía información de depruración al puerto serie, así como información adicional en el JSON que se envia por MQTT a Home Assistant *(Uso de memoria, Uptime, etc.)*.
+- Actualizar el código del Firmware para que el Sensor de Desborde sea opcional.
+- Incluir en el Firmware un "Modo-Debug", mediante el cual  pueda configurarse si envía información de depruración al puerto serie, así como información adicional en el JSON que se envia por MQTT a Home Assistant *(Uso de memoria, Uptime, etc.)*.
 - Agregar capturas de la pantalla OLED con los distintos estados del dispositivo.
 

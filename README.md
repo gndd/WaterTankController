@@ -79,7 +79,7 @@ En mi caso utilicé un Contactor modular bipolar monofásico marca BAW *(modelo 
 
 ## Esquemático y PCB del WaterTankController
 
-El esquemático del dispositivo está diseñado y [publicado con Licencia CC-BY-NC-SA 3.0 en EasyEDA](https://easyeda.com/gndidonato/watertankcontroller).
+El esquemático del dispositivo está diseñado y [publicado con Licencia GPL 3.0 en EasyEDA](https://easyeda.com/gndidonato/watertankcontroller).
 
 ![WaterTankController](images/Schematic_WaterTankController.png)
 
@@ -195,7 +195,9 @@ sensor 3:
 
 ## Licencia
 
-[WaterTankController ](https://github.com/gndd/WaterTankController)by [Guillermo Di Donato](https://guillermodidonato.com/#about) is licensed under [CC BY-NC-SA 4.0 ](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1)[![CC icon](https://chooser-beta.creativecommons.org/img/cc.7a093a7d.svg)![by icon](https://chooser-beta.creativecommons.org/img/by.f6aa22c4.svg)![nc icon](https://chooser-beta.creativecommons.org/img/nc.8c3b7ea6.svg)![sa icon](https://chooser-beta.creativecommons.org/img/sa.67ddd908.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1)
+[WaterTankController ](https://github.com/gndd/WaterTankController)by [Guillermo Di Donato](https://guillermodidonato.com/#about) is licensed under [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0)
 
 
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 

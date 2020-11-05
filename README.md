@@ -61,7 +61,11 @@ A partir de ese momento, y con el Home Assistan configurado *[(ver configuració
 
 
 
-Para tener información del estado de los componentes del circuito de agua de manera local, el dispositivo cuenta también con una pantalla OLED.
+Para tener información del estado de los componentes del circuito de agua de manera local, el dispositivo cuenta también con una pantalla OLED. Los distintos estados del sistema se grafican como se muestra en las siguientes pantallas.
+
+
+
+![WaterTankController](images/Pantallas.png)
 
 
 

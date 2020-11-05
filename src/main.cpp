@@ -46,7 +46,7 @@
 
 const unsigned int tiempoReporteMQTTBroker = 30000; // Tiempo de reporte al Broker MQTT.
 const unsigned int timepoMaximoBombaEncendida = 420000; // Tiempo máximo en que la Bomba Centrífuga estará encendida (7 minutos).
-const unsigned int timepoEntreEncendidosBomba = 1200000; // Tiempo permitido entre encendidos de la Bomba Centrífuga (20 minutos).
+const unsigned int timepoEntreEncendidosBomba = 600000; // Tiempo permitido entre encendidos de la Bomba Centrífuga (10 minutos).
 
 unsigned int ledBlinkONInterval = 50; // Tiempo de ON de Led Blink.
 unsigned int ledBlinkOFFInterval = 3000; // Tiempo de OFF de Led Blink.

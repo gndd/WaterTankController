@@ -191,15 +191,16 @@ sensor 3:
 ## Tareas Pendientes y mejoras planeadas para el proyecto
 
 - Hacer el PCB del WaterTankController.
+
 - Actualizar el código del Firmware para que el Sensor de Desborde sea opcional.
+
 - Incluir en el Firmware un "Modo-Debug", mediante el cual  pueda configurarse si envía información de depruración al puerto serie, así como información adicional en el JSON que se envia por MQTT a Home Assistant *(Uso de memoria, Uptime, etc.)*.
-- Agregar capturas de la pantalla OLED con los distintos estados del dispositivo.
 
-
+  
 
 ## Licencia
 
-[WaterTankController ](https://github.com/gndd/WaterTankController)by [Guillermo Di Donato](https://guillermodidonato.com/#about) is licensed under [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0)
+[WaterTankController ](https://github.com/gndd/WaterTankController)by [Guillermo Di Donato](https://guillermodidonato.com/#about) is licensed under [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0). Más información y contacto [en mi sitio personal](https://guillermodidonato.com/).
 
 
 

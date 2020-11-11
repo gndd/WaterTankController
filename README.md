@@ -53,7 +53,7 @@ Seleccionando el botón "Configure WiFi", el **WaterTankController** realizará 
 
 Una vez cargados los datos, al guardarlos por medio del botón "Save", el dispositivo se reiniciará, y si logra conectarse la red WiFi especificada, comenzará a enviar los datos a la instancia de Home Assistant que se le haya configurado en el programa *[(ver Firmware más abajo)](Configuración del Firmware del WaterTankController)*.
 
-A partir de ese momento, y con el Home Assistan configurado *[(ver configuración de Home Assistant)](Configuración de Home Assistant)*, podrá verse el estado del circuito de agua de la casa en el Dashboard correspondiente, tal como se muestra en la siguiente imagen:
+A partir de ese momento, y con el Home Assistan configurado *[(ver configuración de Home Assistant)](Configuración-de-Home-Assistant)*, podrá verse el estado del circuito de agua de la casa en el Dashboard correspondiente, tal como se muestra en la siguiente imagen:
 
 
 
